@@ -39,9 +39,11 @@ export function EduMarketOfferSection() {
           {learningOptions.map((option, index) => {
             const IconComponent = option.icon;
             return (
-              <Box className="min-w-[90%] sm:min-w-[70%] lg:min-w-[30%] snap-start">
+              <Box
+                key={index}
+                className="min-w-[90%] sm:min-w-[70%] lg:min-w-[30%] snap-start"
+              >
                 <Card
-                  key={index}
                   radius={"md"}
                   p={{ base: "md", md: 0, lg: "md" }}
                   className={`group hover:shadow-2xl transition-all duration-500 border-2 ${option.borderColor} ${option.bgColor} xl:hover:scale-105 relative overflow-hidden`}
