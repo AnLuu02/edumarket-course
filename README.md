@@ -48,9 +48,9 @@ EduMarket là nền tảng học trực tuyến hiện đại, hỗ trợ ngư�
 
 ### 1️⃣ Clone Repository
 ```bash
-git clone https://github.com/AnLuu02/website-edumarket-course.git
+git clone https://github.com/AnLuu02/edumarket-course.git
 #
-cd website-edumarket-course
+cd edumarket-course
 ```
 
 ### 2️⃣ Cài Đặt Dependencies
@@ -72,7 +72,7 @@ Mở trình duyệt tại: http://localhost:5173
 
 ## 🌐 Triển Khai
 Dự án đã được triển khai tại:
-🔗 https://website-edumarket-course-dekn.vercel.app/
+🔗 https://edumarket-course.vercel.app/
 
 
 ## ✅ Tính Năng
