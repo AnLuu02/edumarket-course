@@ -1,69 +1,106 @@
-# React + TypeScript + Vite
+# 📚 EduMarket - Nền tảng học trực tuyến với AI
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 📝 Giới Thiệu
+EduMarket là nền tảng học trực tuyến hiện đại, hỗ trợ người học tìm kiếm và khám phá khóa học thông minh bằng **trợ lý AI**.
 
-Currently, two official plugins are available:
+- 💬 Chatbot AI tư vấn khóa học theo từ khóa, sở thích, hành vi.
+- ❤️ Yêu thích khóa học.
+- 🛒 Thêm vào giỏ hàng (mock).
+- 🔍 Lọc theo cấp độ, giá, tìm kiếm từ khóa. v.v
+- 📱 Responsive giao diện mobile/tablet/desktop.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Expanding the ESLint configuration
+## 🚀 Công Nghệ Sử Dụng
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- ⚛️ React 18
+- 🧭 React Router v6
+- ⚡ Vite
+- 🧠 TypeScript
+- 🎨 Mantine v7 (UI library)
+- 💨 Tailwind CSS (Styling)
+- 🔧 Axios Mock Adapter (giả lập API AI)
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## 📂 Cấu Trúc Dự Án
+```
+📦 edumarket
+├── 📂 src
+│ ├── 📂 assets # Hình ảnh, dữ liệu giả
+│ ├── 📂 components # Component UI (ChatBox, CourseCard, ...)
+│ ├── 📂 contexts # Context toàn cục (ví dụ: ModalContext)
+│ ├── 📂 hooks # Custom React Hooks
+│ ├── 📂 layouts # Layout trang
+│ ├── 📂 pages # Trang chính (Home, Courses, ...)
+│ ├── 📂 routes # Định tuyến
+│ ├── 📂 types # TypeScript types
+│ ├── 📂 utils # Hàm tiện ích (generateCourses, formatter, ...)
+│ ├── App.tsx # Gốc ứng dụng
+│ ├── main.tsx # Mount vào DOM
+│ ├── mockApi.ts # File mock logic AI chatbot
+│ ├── vite-env.d.ts # Type cho Vite
+├── 📄 index.css # Tailwind + Mantine base style
+├── 📄 .gitignore
+└── 📄 README.md   
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 🛠 Cài Đặt
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### 1️⃣ Clone Repository
+```bash
+git clone https://github.com/AnLuu02/website-edumarket-course.git
+#
+cd website-edumarket-course
 ```
+
+### 2️⃣ Cài Đặt Dependencies
+```bash
+npm install
+# hoặc
+yarn install
+```
+
+### 3️⃣ Chạy Dự Án
+```bash
+npm run dev
+# hoặc
+yarn dev
+```
+
+Mở trình duyệt tại: http://localhost:5173
+
+
+## 🌐 Triển Khai
+Dự án đã được triển khai tại:
+🔗 https://website-edumarket-course-dekn.vercel.app/
+
+
+## ✅ Tính Năng
+ - ✅ Giao diện thân thiện, dễ sử dụng.
+
+ - ✅ Chatbot AI tư vấn khóa học.
+
+ - ✅ Gợi ý thông minh theo hành vi người dùng (mock).
+
+ - ✅ Lọc khóa học theo cấp độ, giá, danh mục,...
+
+ - ✅ Giao diện responsive cho mobile/tablet/desktop.
+
+ - ✅ Sử dụng Tailwind kết hợp Mantine v7.
+
+ - ✅ Không cần backend — API được mock bằng Axios Adapter.
+
+
+ ## 📌 Ghi chú
+ - Dự án không yêu cầu .env, vì toàn bộ API đều được giả lập cục bộ bằng mockApi.ts.
+
+ - Các dữ liệu như khóa học, giảng viên, gợi ý... đều được sinh ngẫu nhiên bằng hàm generateCourses()
+
+
+## 📥 Đóng Góp
+ - Mọi đóng góp đều được hoan nghênh!
+ - Fork, tạo branch và gửi pull request ❤️
+
+
+## ✨ EduMarket - Learn Smarter, Not Harder. 🚀
+Nếu bạn cần thêm phần **test UI**, **cách tạo bản build**, hoặc hướng dẫn cho người không dùng Vite, mình có thể bổ sung nhé!
