@@ -28,7 +28,8 @@ export function ModalHistory() {
     defaultValue: []
   });
   const removeFromHistory = (productId: string) => {
-    setViewHistory(viewHistory.filter((item) => item.id !== productId));
+    const filteredHistory = viewHistory.filter((item) => item.id !== productId);
+    setViewHistory([...filteredHistory]);
   };
 
   const clearAllHistory = () => {
@@ -43,6 +44,7 @@ export function ModalHistory() {
 
     return viewHistory.filter((item) => {
       const viewDate = new Date(item.lastViewedAt);
+      if (isNaN(viewDate.getTime())) return false;
       switch (filter) {
         case "today":
           return viewDate >= today;
@@ -159,14 +161,14 @@ export function ModalHistory() {
               <Text fw={500} className="text-gray-700 mb-2">
                 {filter === "all"
                   ? "Chưa có lịch sử xem"
-                  : `No courses viewed ${
-                      filter === "today" ? "today" : `this ${filter}`
+                  : `Không có khóa học nào được xem trong ${
+                      filter === "today" ? "today" : `${filter} này`
                     }`}
               </Text>
               <Text size="sm" className="text-gray-500 mb-4">
                 {filter === "all"
                   ? "Bắt đầu khám phá các khóa học để xây dựng lịch sử xem của bạn"
-                  : "Try selecting a different time period or browse some courses"}
+                  : "Hãy thử chọn một khoảng thời gian khác hoặc duyệt qua một số khóa học"}
               </Text>
               <Link to="/courses">
                 <Button variant="light">Tìm kiếm khóa học</Button>

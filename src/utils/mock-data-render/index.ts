@@ -514,7 +514,7 @@ export const trendingTopics = [
 
 export const navigations = [
   { name: "Trang chủ", path: "/", icon: BiHome },
-  { name: "Danh mục", path: "#", icon: BiCategory },
+  { name: "Danh mục", path: "/categories", icon: BiCategory },
   { name: "Khóa học", path: "/courses", icon: BiLogoDiscourse },
   { name: "Giảng viên", path: "/teachers", icon: BiUser },
   { name: "Giải đáp", path: "/qa", icon: BiQuestionMark }

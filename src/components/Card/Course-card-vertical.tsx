@@ -94,20 +94,9 @@ export function CourseCardVertical({
               h={200}
               className="w-full h-40 object-cover rounded-t-md"
             />
-            {/* <Box className="absolute bottom-3 left-3 right-3">
-              <Box className="bg-black/70 rounded-lg p-2">
-                <Box className="flex items-center justify-between text-white text-sm mb-1">
-                  <Text size="sm">Progress</Text>
-                  <Text size="sm">20%</Text>
-                </Box>
-                <Box className="w-full bg-gray-600 rounded-full h-2">
-                  <Box
-                    className="bg-green-500 h-2 rounded-full transition-all duration-300"
-                    style={{ width: `20%` }}
-                  ></Box>
-                </Box>
-              </Box>
-            </Box> */}
+            <Box className="absolute bottom-3 right-3">
+              <Badge>{course.category}</Badge>
+            </Box>
             {course.level && (
               <Badge
                 variant="gradient"

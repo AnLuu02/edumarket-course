@@ -18,11 +18,11 @@ export function CourseCategoriesSection() {
 
           return (
             <Link
+              key={index}
               to={`/courses?category=${encodeURIComponent(category.title)}`}
             >
               <Card
                 radius={"md"}
-                key={index}
                 className={`group hover:shadow-xl transition-all duration-300 border-2 ${category.borderColor} ${category.bgColor} hover:scale-105 cursor-pointer`}
               >
                 <CardSection className="p-6 text-center">

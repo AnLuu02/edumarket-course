@@ -13,7 +13,6 @@ import {
   Paper,
   ScrollAreaAutosize,
   SimpleGrid,
-  Skeleton,
   Stack,
   Text,
   TextInput,
@@ -278,29 +277,14 @@ export function SearchDropdownSection() {
                                       <UnstyledButton className="w-full p-3 rounded-lg hover:bg-gray-100 transition-colors">
                                         <Group gap="md" align="flex-start">
                                           <Box className="relative">
-                                            <Box
+                                            <Image
+                                              src={result.image || "/bot.jpg"}
+                                              alt={result.title}
                                               w={60}
                                               h={60}
                                               className="rounded-lg object-cover"
-                                              pos={"relative"}
-                                            >
-                                              <Image
-                                                src={
-                                                  result.image ||
-                                                  "/placeholder.svg"
-                                                }
-                                                alt={result.title}
-                                                w={60}
-                                                h={60}
-                                                className="rounded-lg object-cover z-[-2] absolute"
-                                              />
-                                              <Skeleton
-                                                w={60}
-                                                h={60}
-                                                pos={"absolute"}
-                                                className="inset-0 z-[-1] rounded-lg "
-                                              />
-                                            </Box>
+                                            />
+
                                             {result.aiEnhanced && (
                                               <Box className="absolute -top-1 -right-1">
                                                 <ThemeIcon

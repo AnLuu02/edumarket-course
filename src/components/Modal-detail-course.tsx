@@ -7,10 +7,13 @@ import {
   Card,
   Divider,
   Flex,
+  Grid,
+  GridCol,
   Group,
   Image,
   Progress,
   Rating,
+  SimpleGrid,
   Spoiler,
   Stack,
   Tabs,
@@ -117,7 +120,12 @@ export function ModalDetailCourse({
             </Box>
           </Group>
 
-          <Flex justify={"space-between"} align={"center"} gap="md">
+          <Flex
+            justify={"space-between"}
+            direction={{ base: "column", sm: "row" }}
+            align={"center"}
+            gap="md"
+          >
             <Flex direction={"column"}>
               <Flex justify={"center"} align={"center"} gap={2}>
                 <Tooltip label={`Giá: ${formatPriceLocaleVi(course.price)}`}>
@@ -174,7 +182,7 @@ export function ModalDetailCourse({
         </Box>
       </Group>
 
-      <Group grow>
+      <SimpleGrid cols={{ base: 1, sm: 4 }}>
         <Card className="bg-blue-50 border-0">
           <Group gap="xs">
             <CgLock className="w-5 h-5 text-blue-600" />
@@ -229,9 +237,13 @@ export function ModalDetailCourse({
             </Group>
           </Card>
         )}
-      </Group>
+      </SimpleGrid>
 
-      <Tabs value={activeTab} onChange={setActiveTab}>
+      <Tabs
+        value={activeTab}
+        onChange={setActiveTab}
+        classNames={{ tab: "mb-4 md:mb-0" }}
+      >
         <Tabs.List>
           <Tabs.Tab value="overview">Tổng quan</Tabs.Tab>
           <Tabs.Tab value="curriculum">Chương trình giảng dạy</Tabs.Tab>
@@ -337,43 +349,47 @@ export function ModalDetailCourse({
         <Tabs.Panel value="reviews" className="pt-4">
           <Stack gap="md">
             <Card className="bg-gray-50 border-0">
-              <Group align="flex-start" gap="xl">
-                <Box className="text-center">
-                  <Text size="3xl" fw={700} className="text-gray-900">
-                    {course.rating}
-                  </Text>
-                  <Rating
-                    value={course.rating}
-                    readOnly
-                    size="lg"
-                    className="mb-2"
-                  />
-                  <Text size="sm" className="text-gray-600">
-                    {course.reviews.toLocaleString()} reviews
-                  </Text>
-                </Box>
+              <Grid>
+                <GridCol span={{ base: 12, sm: 4 }}>
+                  <Box className="text-center flex items-center flex-col  sm:items-start">
+                    <Text fw={700} className="text-gray-900 text-3xl">
+                      {course.rating}
+                    </Text>
+                    <Rating
+                      value={course.rating}
+                      readOnly
+                      size="lg"
+                      className="mb-2"
+                    />
+                    <Text size="sm" className="text-gray-600">
+                      {course.reviews.toLocaleString()} đánh giá
+                    </Text>
+                  </Box>
+                </GridCol>
 
-                <Box className="flex-1">
-                  {ratingDistribution.map((item) => (
-                    <Group key={item.stars} gap="md" className="mb-2">
-                      <Group gap="xs" className="w-16">
-                        <Text size="sm">{item.stars}</Text>
-                        <BsFillStarFill className="w-3 h-3 text-yellow-400 fill-current" />
+                <GridCol span={{ base: 12, sm: 8 }}>
+                  <Box className="flex-1">
+                    {ratingDistribution.map((item) => (
+                      <Group key={item.stars} gap="md" className="mb-2">
+                        <Group gap="xs" className="w-16">
+                          <Text size="sm">{item.stars}</Text>
+                          <BsFillStarFill className="w-3 h-3 text-yellow-400 fill-current" />
+                        </Group>
+                        <Progress value={item.percentage} className="flex-1" />
+                        <Text size="sm" className="w-12 text-gray-600">
+                          {item.count}
+                        </Text>
                       </Group>
-                      <Progress value={item.percentage} className="flex-1" />
-                      <Text size="sm" className="w-12 text-gray-600">
-                        {item.count}
-                      </Text>
-                    </Group>
-                  ))}
-                </Box>
-              </Group>
+                    ))}
+                  </Box>
+                </GridCol>
+              </Grid>
             </Card>
 
             <Stack gap="md">
               {course.courseReviews.map((review) => (
                 <Card key={review.id} className="border border-gray-200">
-                  <Group align="flex-start" gap="md">
+                  <Group justify="flex-start" gap={"xl"}>
                     <Avatar src={review.avatar} size="md" radius="xl" />
                     <Box className="flex-1">
                       <Group justify="space-between" className="mb-2">
@@ -409,38 +425,42 @@ export function ModalDetailCourse({
 
         <Tabs.Panel value="instructor" className="pt-4">
           <Card className="border border-gray-200">
-            <Group align="flex-start" gap="lg">
-              <Avatar
-                size="xl"
-                radius="xl"
-                src="/placeholder.svg?height=80&width=80"
-              />
-              <Box className="flex-1">
-                <Text fw={600} size="lg" className="mb-2">
-                  {course.instructor}
-                </Text>
-                <Text className="text-gray-600 mb-3">
-                  {course.instructorDetail.specialization}
-                </Text>
-                <Group gap="lg" className="mb-4">
-                  <Group gap="xs">
-                    <BsFillStarFill className="w-4 h-4 text-yellow-400 fill-current" />
-                    <Text fw={500}>{course.instructorDetail.rating}</Text>
+            <Grid>
+              <GridCol span={{ base: 12, sm: 3 }}>
+                <Avatar
+                  size="xl"
+                  radius="xl"
+                  src="/placeholder.svg?height=80&width=80"
+                />
+              </GridCol>
+              <GridCol span={{ base: 12, sm: 9 }}>
+                <Box className="flex-1">
+                  <Text fw={600} size="lg" className="mb-2">
+                    {course.instructor}
+                  </Text>
+                  <Text className="text-gray-600 mb-3">
+                    {course.instructorDetail.specialization}
+                  </Text>
+                  <Group gap="lg" className="mb-4">
+                    <Group gap="xs">
+                      <BsFillStarFill className="w-4 h-4 text-yellow-400 fill-current" />
+                      <Text fw={500}>{course.instructorDetail.rating}</Text>
+                    </Group>
+                    <Group gap="xs">
+                      <BiUser className="w-4 h-4 text-gray-500" />
+                      <Text>{course.instructorDetail.students}+ học viên</Text>
+                    </Group>
+                    <Group gap="xs">
+                      <BiBookOpen className="w-4 h-4 text-gray-500" />
+                      <Text>{course.instructorDetail.courses} khóa học</Text>
+                    </Group>
                   </Group>
-                  <Group gap="xs">
-                    <BiUser className="w-4 h-4 text-gray-500" />
-                    <Text>{course.instructorDetail.students}+ học viên</Text>
-                  </Group>
-                  <Group gap="xs">
-                    <BiBookOpen className="w-4 h-4 text-gray-500" />
-                    <Text>{course.instructorDetail.courses} khóa học</Text>
-                  </Group>
-                </Group>
-                <Text className="text-gray-700 leading-relaxed">
-                  {course.instructorDetail.bio}
-                </Text>
-              </Box>
-            </Group>
+                  <Text className="text-gray-700 leading-relaxed">
+                    {course.instructorDetail.bio}
+                  </Text>
+                </Box>
+              </GridCol>
+            </Grid>
           </Card>
         </Tabs.Panel>
       </Tabs>

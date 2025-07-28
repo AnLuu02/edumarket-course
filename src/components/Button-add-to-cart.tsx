@@ -46,28 +46,22 @@ export function ButtonAddToCart({
     >
       {variant === "icon" ? (
         <ActionIcon
-          variant="light"
           onClick={() => onAddToCart(course.id)}
           disabled={courseExist}
+          variant="filled"
           {...styles}
-          classNames={{
-            root: "hover:bg-blue-200"
-          }}
         >
           <CgShoppingCart className="w-4 h-4" />
         </ActionIcon>
       ) : (
         <Button
-          variant=""
+          variant="filled"
           {...styles}
           disabled={courseExist}
-          classNames={{
-            root: "hover:bg-blue-200"
-          }}
           leftSection={<CgShoppingCart className="w-4 h-4" />}
           onClick={() => onAddToCart(course.id)}
         >
-          Thêm vào giỏ
+          Thêm
         </Button>
       )}
     </Tooltip>
