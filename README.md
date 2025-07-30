@@ -100,7 +100,3 @@ Dự án đã được triển khai tại:
 ## 📥 Đóng Góp
  - Mọi đóng góp đều được hoan nghênh!
  - Fork, tạo branch và gửi pull request ❤️
-
-
-## ✨ EduMarket - Learn Smarter, Not Harder. 🚀
-Nếu bạn cần thêm phần **test UI**, **cách tạo bản build**, hoặc hướng dẫn cho người không dùng Vite, mình có thể bổ sung nhé!
